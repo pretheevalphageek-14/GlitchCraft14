@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>C++ Mastery Path</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#16202e;--mute:#5d6b7e;--line:#dde2ea;--acc:#1f5fd6;--accbg:#e6eefc;--code:#0f1b2d;--codeink:#d7e3f7;--e:#1c8a4a;--m:#b8741a;--h:#c53a3a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1420;--panel:#141d2c;--ink:#e4ebf5;--mute:#94a3b8;--line:#25324a;--acc:#6ea0ff;--accbg:#1b2a47;--code:#080e18;--e:#4cc57e;--m:#e0a04a;--h:#ee7676}}
+:root[data-theme="dark"]{--bg:#0d1420;--panel:#141d2c;--ink:#e4ebf5;--mute:#94a3b8;--line:#25324a;--acc:#6ea0ff;--accbg:#1b2a47;--code:#080e18;--e:#4cc57e;--m:#e0a04a;--h:#ee7676}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+.wrap{display:grid;grid-template-columns:270px 1fr;max-width:1100px;margin:0 auto;gap:24px;padding:20px}
+nav{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--mute);font-size:14px;margin:0 0 14px}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:4px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .3s}
+#pt{font-size:13px;color:var(--mute);margin-bottom:12px}
+nav button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;color:var(--ink);font:inherit;font-size:14px;padding:7px 10px;cursor:pointer;border-radius:0 6px 6px 0}
+nav button:hover{background:var(--accbg)}
+nav button.on{border-left-color:var(--acc);background:var(--accbg);font-weight:600}
+nav small{color:var(--mute);font-family:"JetBrains Mono",monospace}
+main{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px;min-width:0}
+main h2{margin:0 0 6px;font-size:26px}
+main h3{margin:26px 0 8px;font-size:16px}
+.lede{color:var(--mute);margin:0 0 4px}
+pre{background:var(--code);color:var(--codeink,#d7e3f7);padding:14px 16px;border-radius:8px;overflow-x:auto;font:13.5px/1.55 "JetBrains Mono",monospace;margin:8px 0}
+code{font-family:"JetBrains Mono",monospace;font-size:.9em;background:var(--accbg);padding:1px 5px;border-radius:4px}
+ul{padding-left:20px;margin:6px 0}li{margin:3px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tw{overflow-x:auto}
+.p{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.p input{width:18px;height:18px;accent-color:var(--acc);flex:none}
+.p a{color:var(--ink);text-decoration:none;flex:1;font-weight:600}
+.p a:hover{color:var(--acc);text-decoration:underline}
+.p span.n{font-family:"JetBrains Mono",monospace;color:var(--mute);font-size:13px;width:44px;flex:none}
+.p em{font-style:normal;font-size:12px;font-weight:600}
+.Easy{color:var(--e)}.Medium{color:var(--m)}.Hard{color:var(--h)}
+.p.done a{text-decoration:line-through;color:var(--mute)}
+.hint{font-size:13px;color:var(--mute);margin-top:4px}
+.tk{background:var(--accbg);border-radius:8px;padding:10px 14px;margin-top:8px}
+.pn{display:flex;justify-content:space-between;margin-top:24px}
+.pn button{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:8px 14px;font:inherit;cursor:pointer}
+.pn button:disabled{opacity:.3;cursor:default}
+@media(max-width:760px){.wrap{grid-template-columns:1fr;padding:12px}nav{position:static;max-height:220px}main{padding:18px}}
+:root:root:root{--bg:#000;--panel:rgba(8,6,0,.88);--ink:#ffd763;--mute:#c9a443;--line:#4a3a0c;--acc:#ffc61a;--accbg:#1d1600;--code:#050400;--codeink:#ffe7a0;--e:#5df29a;--m:#ffb347;--h:#ff6b6b}
+body{background-color:#000;background-image:radial-gradient(ellipse at 50% 0,rgba(255,190,30,.14),transparent 60%),linear-gradient(rgba(255,198,26,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,198,26,.1) 1px,transparent 1px);background-size:100% 100%,44px 44px,44px 44px;background-attachment:fixed;text-shadow:0 0 7px rgba(255,200,40,.4)}
+h1,h2,h3,.lv b,#clk,nav button.on,.st b{text-shadow:0 0 6px #ffc61a,0 0 18px rgba(255,198,26,.7),0 0 36px rgba(255,198,26,.4)}
+.p a:hover{text-shadow:0 0 8px #ffc61a,0 0 20px rgba(255,198,26,.6)}
+pre{text-shadow:none}code{text-shadow:0 0 4px rgba(255,198,26,.5)}
+main{border:1px solid #6b520f;box-shadow:0 0 26px rgba(255,198,26,.2),inset 0 0 40px rgba(255,198,26,.04)}
+.bar{height:12px;border:1px solid var(--line);background:#0a0800;border-radius:6px}
+.bar i{background:linear-gradient(90deg,#b8860b,#ffc61a,#fff2b0);box-shadow:0 0 12px #ffc61a}
+.bar.xp i{background:linear-gradient(90deg,#ff9d00,#ffe066)}.bar.goal i{background:linear-gradient(90deg,#3ddc84,#c8ff9e);box-shadow:0 0 12px #3ddc84}
+.hud{border:1px solid #6b520f;border-radius:10px;padding:12px;margin-bottom:12px;background:rgba(20,15,0,.75);box-shadow:0 0 18px rgba(255,198,26,.15)}
+.lv{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}.lv b{font-size:20px}
+.mini{font-size:12px;color:var(--mute);margin:8px 0 4px}#gt{cursor:pointer}
+.row{display:flex;gap:8px;margin:10px 0}.st{flex:1;text-align:center;border:1px solid var(--line);border-radius:8px;padding:6px 4px}.st b{display:block;font-size:20px}.st small{display:block;font-size:11px;color:var(--mute)}
+.pomo{display:flex;justify-content:space-between;align-items:center;margin-top:12px}#clk{font:600 26px "JetBrains Mono",monospace}
+.pomo button,.pn button{background:#ffc61a;color:#000;border:0;border-radius:6px;padding:6px 11px;font:600 13px "IBM Plex Sans",sans-serif;cursor:pointer;text-shadow:none;box-shadow:0 0 12px rgba(255,198,26,.5);width:auto}.pomo button{margin-left:4px}.pn button{font-size:15px;padding:8px 14px}
+.bd{margin-top:10px}.bd span{font-size:22px;margin-right:4px;cursor:default}.bd span.off{filter:grayscale(1);opacity:.22}
+.qt{font-size:12.5px;color:var(--mute);font-style:italic;margin:10px 0 0}
+nav button{flex-wrap:wrap}nav button .mb{display:block;flex-basis:100%;height:3px;background:var(--line);margin-top:5px;border-radius:2px;overflow:hidden}nav button .mb b{display:block;height:100%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+.tk{border:1px dashed #6b520f}
+#ts{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:#ffc61a;color:#000;padding:10px 18px;border-radius:999px;font-weight:600;text-shadow:none;transition:.25s;z-index:20;box-shadow:0 0 24px rgba(255,198,26,.7);pointer-events:none}#ts.on{opacity:1;transform:translateX(-50%)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #fff2b0;outline-offset:2px}
+@media(max-width:760px){nav{max-height:none}#nv{max-height:210px;overflow:auto}}
+</style></head><body>
+<div class="wrap"><nav><h1>C++ Mastery Path</h1><p class="sub">Concept, headers, code, then LeetCode practice.</p>
+<div class="hud"><div class="lv"><b id="lvn">Lv 1</b><span id="lvt">Newbie</span></div><div class="bar xp"><i id="xf"></i></div><div class="mini" id="xt"></div><div class="row"><div class="st">🔥<b id="sk">0</b><small>day streak</small></div><div class="st">⏱<b id="fm">0</b><small>focus min</small></div></div><div class="mini">Course progress</div><div class="bar"><i id="bf"></i></div><div id="pt"></div><div class="mini" id="gt"></div><div class="bar goal"><i id="gf"></i></div><div class="pomo"><div id="clk">25:00</div><div><button id="ps">Start</button><button id="pr">Reset</button></div></div><div class="bd" id="bd"></div><p class="qt" id="qt"></p></div><div id="nv"></div></nav>
+<main id="mn"></main></div>
+<script>
+const T=[
+{t:"Header cheat sheet",c:"Know what to include for each job. During contests, <code>#include &lt;bits/stdc++.h&gt;</code> pulls in everything, but it only works on GCC and isn’t portable, so learn the real headers.",
+cs:[["&lt;iostream&gt;","cin, cout, cerr"],["&lt;vector&gt; &lt;array&gt;","dynamic and fixed arrays"],["&lt;string&gt; &lt;sstream&gt;","strings, string streams"],["&lt;map&gt; &lt;set&gt;","ordered tree containers"],["&lt;unordered_map&gt; &lt;unordered_set&gt;","hash containers"],["&lt;stack&gt; &lt;queue&gt; &lt;deque&gt;","adapters; queue also has priority_queue"],["&lt;algorithm&gt;","sort, find, binary_search, reverse, min, max"],["&lt;numeric&gt;","accumulate, iota, gcd"],["&lt;cmath&gt; &lt;climits&gt;","sqrt, pow, INT_MAX, INT_MIN"],["&lt;memory&gt;","unique_ptr, shared_ptr, make_unique"],["&lt;functional&gt;","std::function, greater&lt;&gt;"],["&lt;bitset&gt; &lt;utility&gt; &lt;tuple&gt;","bit sets, pair, move, tuple"]],
+code:"#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);   // fast I/O\n    cout << \"Hello C++\\n\";\n}",p:[]},
+{t:"Setup: compile and run",inc:"&lt;iostream&gt;",c:"C++ is compiled: you write <code>main.cpp</code>, a compiler (g++ or clang++) turns it into an executable, then you run it. Every program starts at <code>main()</code>. Use VS Code with the C/C++ extension or an online compiler to start fast. Compile with warnings (<code>-Wall</code>) and a modern standard (<code>-std=c++20</code>).",code:`// main.cpp\n#include <iostream>\n\nint main() {\n    std::cout << "Hello, C++!\\n";\n    return 0;\n}\n\n// terminal:\n// g++ -std=c++20 -Wall -O2 main.cpp -o main\n// ./main   (Windows: main.exe)`,k:["Preprocess, compile, link","Reading compiler errors from the first one","std:: versus using namespace std"],p:[]},
+{t:"Basics, types and I/O",inc:"&lt;iostream&gt; &lt;string&gt; &lt;climits&gt;",c:"Static types, <code>int/long long/double/char/bool</code>, <code>auto</code>, references, <code>const</code>. <code>int</code> overflows at about 2.1e9, so use <code>long long</code> for sums and products. Integer division truncates, and <code>%</code> follows the sign of the left operand.",
+code:"int a = INT_MAX;\nlong long b = (long long)a + 1;\nauto x = 7 / 2;      // 3 (int)\ndouble y = 7 / 2.0;  // 3.5\nconst int N = 1e5;",
+k:["Overflow and casting","Digit extraction with % and /","Pass big objects by const&"],
+p:[[412,"fizz-buzz","Fizz Buzz","Easy"],[9,"palindrome-number","Palindrome Number","Easy"],[7,"reverse-integer","Reverse Integer","Medium"],[1,"two-sum","Two Sum","Easy"]]},
+{t:"Control flow and functions",inc:"(core language)",c:"<code>for</code>, range-for, <code>while</code>, <code>switch</code>, function overloading, default arguments, recursion. Pass by value copies, <code>T&amp;</code> mutates the caller’s variable, and <code>const T&amp;</code> avoids a copy.",
+code:"int fib(int n) { return n < 2 ? n : fib(n-1) + fib(n-2); }\nvoid addOne(vector<int>& v) { for (int& x : v) ++x; }\nint sum(const vector<int>& v, int start = 0);",
+k:["Range-for with &","Base case + recursive step","Iterative vs recursive"],
+p:[[509,"fibonacci-number","Fibonacci Number","Easy"],[70,"climbing-stairs","Climbing Stairs","Easy"],[231,"power-of-two","Power of Two","Easy"],[202,"happy-number","Happy Number","Easy"]]},
+{t:"Arrays and vectors",inc:"&lt;vector&gt; &lt;algorithm&gt;",c:"<code>vector</code> is your default container: contiguous, amortized O(1) <code>push_back</code>, O(1) index, O(n) insert in the middle. Know <code>size()</code> returns unsigned, so <code>v.size()-1</code> on an empty vector wraps around.",
+code:"vector<int> v(5, 0);        // five zeros\nv.push_back(3); v.pop_back();\nvector<vector<int>> g(n, vector<int>(m, -1));\nsort(v.begin(), v.end());\nreverse(v.begin(), v.end());",
+k:["Prefix sums","In-place modification","2D vectors","Kadane’s algorithm"],
+p:[[217,"contains-duplicate","Contains Duplicate","Easy"],[121,"best-time-to-buy-and-sell-stock","Best Time to Buy and Sell Stock","Easy"],[53,"maximum-subarray","Maximum Subarray","Medium"],[238,"product-of-array-except-self","Product of Array Except Self","Medium"],[189,"rotate-array","Rotate Array","Medium"]]},
+{t:"Strings",inc:"&lt;string&gt; &lt;sstream&gt; &lt;cctype&gt;",c:"<code>std::string</code> is mutable and supports <code>+=</code>, <code>substr(pos,len)</code>, <code>find</code>, and indexing. Use <code>isalnum</code>, <code>tolower</code>, <code>isdigit</code> from <code>&lt;cctype&gt;</code>. Frequency arrays of size 26 or 128 are faster than maps.",
+code:"string s = \"hello\";\nint cnt[26] = {};\nfor (char c : s) cnt[c - 'a']++;\nstringstream ss(line); string w;\nwhile (ss >> w) { /* each word */ }\nto_string(42); stoi(\"42\");",
+k:["Char arithmetic","Frequency counting","Substrings and splitting"],
+p:[[125,"valid-palindrome","Valid Palindrome","Easy"],[242,"valid-anagram","Valid Anagram","Easy"],[14,"longest-common-prefix","Longest Common Prefix","Easy"],[49,"group-anagrams","Group Anagrams","Medium"],[5,"longest-palindromic-substring","Longest Palindromic Substring","Medium"]]},
+{t:"Hash maps and sets",inc:"&lt;unordered_map&gt; &lt;unordered_set&gt; &lt;map&gt; &lt;set&gt;",c:"<code>unordered_*</code> gives average O(1) lookup using hashing. <code>map/set</code> are red-black trees: O(log n), but sorted, with <code>lower_bound</code>. Beware: <code>m[key]</code> inserts a default value if the key is missing; use <code>find</code> or <code>count</code> to just check.",
+code:"unordered_map<int,int> m;\nfor (int x : nums) m[x]++;\nif (m.count(t)) { /* exists */ }\nfor (auto& [k, v] : m) { /* structured binding */ }\nset<int> s; auto it = s.lower_bound(5);",
+k:["Complement lookup","Frequency maps","Prefix sum + map","Bucket sort"],
+p:[[1,"two-sum","Two Sum","Easy"],[347,"top-k-frequent-elements","Top K Frequent Elements","Medium"],[128,"longest-consecutive-sequence","Longest Consecutive Sequence","Medium"],[560,"subarray-sum-equals-k","Subarray Sum Equals K","Medium"],[36,"valid-sudoku","Valid Sudoku","Medium"]]},
+{t:"Pointers, references and linked lists",inc:"&lt;memory&gt;",c:"A pointer holds an address; <code>*p</code> dereferences, <code>-&gt;</code> accesses members. Prefer <code>unique_ptr</code> over raw <code>new/delete</code>. On LeetCode you work with raw <code>ListNode*</code>, so always check <code>nullptr</code> and use a dummy head node.",
+code:"struct ListNode { int val; ListNode* next; };\nListNode dummy(0); ListNode* tail = &dummy;\nauto p = make_unique<int>(5);\nauto q = make_shared<ListNode>();\nwhile (cur) { cur = cur->next; }",
+k:["Dummy head","Slow/fast pointers","Reverse in place","nullptr checks"],
+p:[[206,"reverse-linked-list","Reverse Linked List","Easy"],[21,"merge-two-sorted-lists","Merge Two Sorted Lists","Easy"],[141,"linked-list-cycle","Linked List Cycle","Easy"],[19,"remove-nth-node-from-end-of-list","Remove Nth Node From End of List","Medium"],[143,"reorder-list","Reorder List","Medium"]]},
+{t:"Classes, RAII and OOP",inc:"(core) &lt;memory&gt; &lt;list&gt; &lt;unordered_map&gt;",c:"Classes bundle data and behavior. <code>private</code> by default in <code>class</code>, <code>public</code> in <code>struct</code>. RAII: acquire resources in the constructor and release in the destructor. Know the Rule of Three/Five, <code>virtual</code> destructors, and <code>override</code>.",
+code:"class Counter {\n    int n_ = 0;\npublic:\n    explicit Counter(int s) : n_(s) {}   // init list\n    void inc() { ++n_; }\n    int get() const { return n_; }\n    virtual ~Counter() = default;\n};",
+k:["Constructors and initializer lists","const methods","Encapsulation for design problems"],
+p:[[155,"min-stack","Min Stack","Medium"],[232,"implement-queue-using-stacks","Implement Queue using Stacks","Easy"],[706,"design-hashmap","Design HashMap","Easy"],[146,"lru-cache","LRU Cache","Medium"],[208,"implement-trie-prefix-tree","Implement Trie","Medium"]]},
+{t:"Stack, queue, heap",inc:"&lt;stack&gt; &lt;queue&gt; &lt;deque&gt;",c:"<code>stack</code> is LIFO; <code>queue</code> is FIFO; <code>deque</code> supports both ends in O(1). <code>priority_queue</code> is a max-heap by default; pass <code>greater&lt;int&gt;</code> for a min-heap. A monotonic stack/deque solves “next greater” and window-maximum problems.",
+code:"stack<char> st; st.push('('); st.top(); st.pop();\npriority_queue<int, vector<int>, greater<int>> minH;\npriority_queue<pair<int,int>> pq;   // max by first\nqueue<int> q; q.push(1); q.front(); q.pop();",
+k:["Matching brackets","Monotonic stack","Top-K with a heap","BFS queue"],
+p:[[20,"valid-parentheses","Valid Parentheses","Easy"],[739,"daily-temperatures","Daily Temperatures","Medium"],[215,"kth-largest-element-in-an-array","Kth Largest Element in an Array","Medium"],[703,"kth-largest-element-in-a-stream","Kth Largest Element in a Stream","Easy"],[239,"sliding-window-maximum","Sliding Window Maximum","Hard"]]},
+{t:"STL algorithms and lambdas",inc:"&lt;algorithm&gt; &lt;numeric&gt; &lt;functional&gt;",c:"Sorting, searching and transforming are one-liners. Learn <code>sort</code> with a custom comparator, <code>lower_bound/upper_bound</code>, <code>accumulate</code>, <code>unique</code>, <code>next_permutation</code>, <code>min_element</code>. Lambdas: <code>[capture](args){body}</code>.",
+code:"sort(v.begin(), v.end(), [](auto& a, auto& b){ return a[0] < b[0]; });\nint total = accumulate(v.begin(), v.end(), 0);\nauto it = lower_bound(v.begin(), v.end(), x);\nv.erase(unique(v.begin(), v.end()), v.end());",
+k:["Custom comparators","Binary search on answer","Erase-unique idiom"],
+p:[[704,"binary-search","Binary Search","Easy"],[56,"merge-intervals","Merge Intervals","Medium"],[75,"sort-colors","Sort Colors","Medium"],[33,"search-in-rotated-sorted-array","Search in Rotated Sorted Array","Medium"],[435,"non-overlapping-intervals","Non-overlapping Intervals","Medium"]]},
+{t:"Two pointers and sliding window",inc:"&lt;vector&gt; &lt;string&gt; &lt;unordered_map&gt;",c:"Two pointers: move from both ends of a sorted array, or use slow/fast pointers. Sliding window: expand the right end, shrink the left end while the window is invalid, and track the best size. Both turn O(n²) into O(n).",
+code:"int l = 0, best = 0;\nunordered_map<char,int> last;\nfor (int r = 0; r < (int)s.size(); ++r) {\n    if (last.count(s[r]) && last[s[r]] >= l) l = last[s[r]] + 1;\n    last[s[r]] = r;\n    best = max(best, r - l + 1);\n}",
+k:["Sorted input → two pointers","Contiguous subarray → window","Window validity condition"],
+p:[[167,"two-sum-ii-input-array-is-sorted","Two Sum II","Medium"],[11,"container-with-most-water","Container With Most Water","Medium"],[15,"3sum","3Sum","Medium"],[3,"longest-substring-without-repeating-characters","Longest Substring Without Repeating Characters","Medium"],[76,"minimum-window-substring","Minimum Window Substring","Hard"]]},
+{t:"Recursion and trees",inc:"&lt;queue&gt; &lt;algorithm&gt;",c:"A tree problem is usually “solve for the children, combine at the node.” DFS uses recursion (preorder, inorder, postorder); BFS uses a queue and processes level by level using the queue size. A BST’s inorder traversal is sorted.",
+code:"struct TreeNode { int val; TreeNode *left, *right; };\nint depth(TreeNode* r) {\n    if (!r) return 0;\n    return 1 + max(depth(r->left), depth(r->right));\n}",
+k:["Base case nullptr","Return values vs reference accumulators","Level-size loop for BFS","BST bounds"],
+p:[[104,"maximum-depth-of-binary-tree","Maximum Depth of Binary Tree","Easy"],[226,"invert-binary-tree","Invert Binary Tree","Easy"],[102,"binary-tree-level-order-traversal","Binary Tree Level Order Traversal","Medium"],[98,"validate-binary-search-tree","Validate Binary Search Tree","Medium"],[236,"lowest-common-ancestor-of-a-binary-tree","Lowest Common Ancestor of a Binary Tree","Medium"],[124,"binary-tree-maximum-path-sum","Binary Tree Maximum Path Sum","Hard"]]},
+{t:"Backtracking",inc:"&lt;vector&gt; &lt;string&gt;",c:"Build a solution step by step: choose, recurse, undo. Pass the path by reference and copy only when you record a result. Prune invalid branches early to avoid exponential blowup.",
+code:"void dfs(int i, vector<int>& path, vector<vector<int>>& res, vector<int>& a) {\n    if (i == (int)a.size()) { res.push_back(path); return; }\n    dfs(i+1, path, res, a);               // skip\n    path.push_back(a[i]);                 // choose\n    dfs(i+1, path, res, a);\n    path.pop_back();                      // undo\n}",
+k:["Choose / explore / undo","Skipping duplicates after sort","Used[] array"],
+p:[[78,"subsets","Subsets","Medium"],[46,"permutations","Permutations","Medium"],[39,"combination-sum","Combination Sum","Medium"],[79,"word-search","Word Search","Medium"],[51,"n-queens","N-Queens","Hard"]]},
+{t:"Graphs",inc:"&lt;vector&gt; &lt;queue&gt; &lt;unordered_map&gt;",c:"Store graphs as adjacency lists: <code>vector&lt;vector&lt;int&gt;&gt; adj(n)</code>. BFS finds shortest paths in unweighted graphs; DFS explores components; topological sort handles dependencies; Dijkstra uses a min-heap for weighted edges. Always track visited.",
+code:"vector<vector<int>> adj(n);\nvector<int> seen(n, 0);\nqueue<int> q; q.push(s); seen[s] = 1;\nwhile (!q.empty()) {\n    int u = q.front(); q.pop();\n    for (int v : adj[u]) if (!seen[v]) { seen[v] = 1; q.push(v); }\n}",
+k:["Grid as graph (4 directions)","Cycle detection","Indegree / Kahn’s algorithm","Dijkstra with priority_queue"],
+p:[[200,"number-of-islands","Number of Islands","Medium"],[133,"clone-graph","Clone Graph","Medium"],[207,"course-schedule","Course Schedule","Medium"],[994,"rotting-oranges","Rotting Oranges","Medium"],[743,"network-delay-time","Network Delay Time","Medium"]]},
+{t:"Dynamic programming",inc:"&lt;vector&gt; &lt;algorithm&gt; &lt;climits&gt;",c:"Define the state, write the recurrence, set base cases, choose the order. Start with recursion + memo, then convert to a table, then compress space. Use <code>INT_MAX/2</code> as infinity to avoid overflow when adding.",
+code:"vector<int> dp(amount + 1, INT_MAX / 2);\ndp[0] = 0;\nfor (int a = 1; a <= amount; ++a)\n    for (int c : coins)\n        if (a >= c) dp[a] = min(dp[a], dp[a - c] + 1);",
+k:["1D then 2D DP","Knapsack pattern","Subsequence pattern","Memoization with vector or map"],
+p:[[198,"house-robber","House Robber","Medium"],[322,"coin-change","Coin Change","Medium"],[62,"unique-paths","Unique Paths","Medium"],[300,"longest-increasing-subsequence","Longest Increasing Subsequence","Medium"],[1143,"longest-common-subsequence","Longest Common Subsequence","Medium"],[72,"edit-distance","Edit Distance","Medium"]]},
+{t:"Bit manipulation",inc:"&lt;bitset&gt; &lt;cstdint&gt;",c:"Operators: <code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code>. Tricks: <code>x &amp; (x-1)</code> clears the lowest set bit, <code>x &amp; -x</code> isolates it, <code>a ^ a = 0</code>. GCC offers <code>__builtin_popcount</code>, and C++20 has <code>std::popcount</code> in <code>&lt;bit&gt;</code>.",
+code:"int ones = 0;\nwhile (n) { n &= n - 1; ++ones; }\nbool pow2 = n > 0 && (n & (n - 1)) == 0;\nint bit = (n >> i) & 1;\nbitset<8> b(5);",
+k:["XOR to cancel pairs","Masks and shifts","Counting bits by DP"],
+p:[[136,"single-number","Single Number","Easy"],[191,"number-of-1-bits","Number of 1 Bits","Easy"],[338,"counting-bits","Counting Bits","Easy"],[268,"missing-number","Missing Number","Easy"],[371,"sum-of-two-integers","Sum of Two Integers","Medium"]]},
+{t:"Modern C++ and templates",inc:"&lt;utility&gt; &lt;optional&gt; &lt;variant&gt; &lt;string_view&gt;",c:"Move semantics (<code>std::move</code>, rvalue refs) avoid copies. Templates write type-generic code. C++17/20 gives structured bindings, <code>optional</code>, <code>string_view</code>, ranges, concepts. Use these for clean code; practice them by re-solving earlier problems more idiomatically.",
+code:"template <typename T>\nT maxOf(T a, T b) { return a > b ? a : b; }\n\nvector<string> v;\nv.emplace_back(\"x\");\nauto s = std::move(str);   // steal, don’t copy\nif (auto it = m.find(k); it != m.end()) { /* C++17 */ }",
+k:["Rule of Five and move","emplace_back vs push_back","Compile with -std=c++20 -Wall -O2"],
+p:[[208,"implement-trie-prefix-tree","Implement Trie (templates + nodes)","Medium"],[211,"design-add-and-search-words-data-structure","Design Add and Search Words","Medium"],[295,"find-median-from-data-stream","Find Median from Data Stream","Hard"],[460,"lfu-cache","LFU Cache","Hard"]]}
+];
+const KEY="cppmastery";let done={},cur=0;
+try{done=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+const all=[...new Set(T.flatMap(t=>t.p.map(p=>p[0])))];
+function prog(){const d=all.filter(n=>done[n]).length;bf.style.width=(all.length?d/all.length*100:0)+"%";pt.textContent=d+" of "+all.length+" problems solved"}
+function nav(){nv.innerHTML="";T.forEach((t,i)=>{const b=document.createElement("button");if(i==cur)b.className="on";const d=t.p.filter(p=>done[p[0]]).length;b.innerHTML="<span>"+t.t+"</span>"+(t.p.length?"<small>"+d+"/"+t.p.length+"</small><i class='mb'><b style='width:"+(d/t.p.length*100)+"%'></b></i>":"");b.onclick=()=>{cur=i;location.hash="t"+i;render()};nv.appendChild(b)})}
+function render(){const t=T[cur];let h="<h2>"+t.t+"</h2><p class='lede'>"+t.c+"</p>";
+if(t.inc)h+="<h3>Include</h3><pre>#include "+t.inc.replace(/&lt;/g,"<").replace(/&gt;/g,">")+"</pre>";
+if(t.cs)h+="<h3>Which header for what</h3><div class='tw'><table>"+t.cs.map(r=>"<tr><td><code>"+r[0]+"</code></td><td>"+r[1]+"</td></tr>").join("")+"</table></div>";
+h+="<h3>Example</h3><pre id='cd'></pre>";
+if(t.k)h+="<h3>Patterns to master</h3><ul>"+t.k.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+if(t.p.length){h+="<h3>LeetCode practice (do in order)</h3>";t.p.forEach(p=>{h+="<div class='p"+(done[p[0]]?" done":"")+"'><input type='checkbox' data-n='"+p[0]+"'"+(done[p[0]]?" checked":"")+" aria-label='Solved "+p[2]+"'><span class='n'>#"+p[0]+"</span><a href='https://leetcode.com/problems/"+p[1]+"/' target='_blank' rel='noopener'>"+p[2]+"</a><em class='"+p[3]+"'>"+p[3]+"</em></div>"});
+h+="<div class='tk'>Tip: solve it in C++ first, then redo it without looking after a few days. Aim for 2 to 3 problems per topic before moving on, and revisit the Mediums.</div>"}
+if(t.k)h+="<h3>Self-check (+5 XP each)</h3>"+t.k.map((x,i)=>"<div class='p"+(done['k'+cur+'_'+i]?' done':'')+"'><input type='checkbox' data-n='k"+cur+"_"+i+"'"+(done['k'+cur+'_'+i]?' checked':'')+" aria-label='Self-check'><a style='pointer-events:none;font-weight:400'>I can explain: "+x+"</a></div>").join("")+"<div class='tk'>Close the tab and explain each one out loud or write it from memory. Teaching it back is the fastest way to learn.</div>";
+h+="<div class='pn'><button id='pv'"+(cur?"":" disabled")+">Previous</button><button id='nx'"+(cur<T.length-1?"":" disabled")+">Next topic</button></div>";
+mn.innerHTML=h;document.getElementById("cd").textContent=t.code;
+mn.querySelectorAll("input[data-n]").forEach(c=>c.onchange=()=>{done[c.dataset.n]=c.checked;if(!c.checked)delete done[c.dataset.n];save();c.parentNode.classList.toggle("done",c.checked);prog();nav()});
+pv.onclick=()=>{cur--;render();window.scrollTo(0,0)};nx.onclick=()=>{cur++;render();window.scrollTo(0,0)};
+nav();prog()}
+const PM={},HK={},PTS={Easy:10,Medium:20,Hard:40};T.forEach(t=>t.p.forEach(p=>{PM[p[0]]=PTS[p[3]];HK[p[0]]=p[3]}));
+const TT=["Newbie","Syntax Cadet","Compiler Whisperer","Pointer Wrangler","STL Sage","Algorithm Knight","C++ Grandmaster"];
+const Q=["Small progress every day beats a big push once a month.","You don’t learn C++ by reading it. You learn it by compiling it.","Every compiler error is a free lesson.","Stuck for 30 minutes? Read the hint, then re-solve it tomorrow.","Consistency is the whole game. Do one problem today.","Explain it out loud. If you can teach it, you know it."];
+let S={log:{},foc:{},goal:3},LL=0,tm=null,end=0,left=1500;
+try{S=Object.assign(S,JSON.parse(localStorage.getItem(KEY+"_s")||"{}"))}catch(e){}
+const sv=()=>{try{localStorage.setItem(KEY+"_s",JSON.stringify(S))}catch(e){}};
+const dk=d=>{d=d||new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
+const act=d=>{const k=dk(d);return (S.log[k]||0)>0||(S.foc[k]||0)>0};
+function streak(){const d=new Date();let n=0;if(!act(d))d.setDate(d.getDate()-1);while(act(d)){n++;d.setDate(d.getDate()-1)}return n}
+const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
+function xp(){let x=0;for(const k in done){if(PM[k])x+=PM[k];else if(k[0]=="k")x+=5}return x+sum(S.foc)*2}
+let tt=null;function toast(m){ts.textContent=m;ts.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>ts.classList.remove("on"),2200)}
+const ts=document.createElement("div");ts.id="ts";document.body.appendChild(ts);
+function hud(){const x=xp(),l=Math.floor(Math.sqrt(x/60))+1,lo=60*(l-1)*(l-1),hi=60*l*l,sv_=all.filter(n=>done[n]).length,hd=all.filter(n=>done[n]&&HK[n]=="Hard").length,sk_=streak(),fmv=sum(S.foc),g=S.log[dk()]||0;
+lvn.textContent="Lv "+l;lvt.textContent=TT[Math.min(l-1,TT.length-1)];xf.style.width=((x-lo)/(hi-lo)*100)+"%";xt.textContent=x+" XP · "+(hi-x)+" to next level";
+sk.textContent=sk_;fm.textContent=fmv;gt.textContent="Today’s goal: "+Math.min(g,S.goal)+"/"+S.goal+" problems"+(g>=S.goal?" ✓":" (tap to change)");gf.style.width=Math.min(100,g/S.goal*100)+"%";
+const B=[["🌱","First solve",sv_>=1],["🔟","10 solved",sv_>=10],["🥈","25 solved",sv_>=25],["🏆","50 solved",sv_>=50],["🧗","Solved a Hard",hd>=1],["🎯","Cleared a topic",T.some(t=>t.p.length&&t.p.every(p=>done[p[0]]))],["🔥","3-day streak",sk_>=3],["🌋","7-day streak",sk_>=7],["⏱","2 hours focused",fmv>=120]];
+bd.innerHTML=B.map(b=>"<span class='"+(b[2]?"":"off")+"' title='"+b[1]+(b[2]?"":" (locked)")+"'>"+b[0]+"</span>").join("");
+if(LL&&l>LL)toast("Level up! You are now "+TT[Math.min(l-1,TT.length-1)]);LL=l}
+const _p=prog;prog=function(){_p();pt.textContent+=" · "+Math.round(all.filter(n=>done[n]).length/all.length*100)+"%";hud()};
+document.addEventListener("change",e=>{const n=e.target.dataset&&e.target.dataset.n;if(!n)return;if(PM[n]){const k=dk();S.log[k]=Math.max(0,(S.log[k]||0)+(e.target.checked?1:-1));sv();if(e.target.checked)toast("+"+PM[n]+" XP · "+HK[n]+" solved")}else if(e.target.checked)toast("+5 XP · self-check");hud()});
+gt.onclick=()=>{S.goal=S.goal%5+1;sv();hud()};
+const fmt=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+function tick(){left=Math.max(0,Math.round((end-Date.now())/1000));clk.textContent=fmt(left);if(!left){clearInterval(tm);tm=null;ps.textContent="Start";const k=dk();S.foc[k]=(S.foc[k]||0)+25;sv();left=1500;clk.textContent="25:00";toast("Focus session done · +50 XP");hud()}}
+ps.onclick=()=>{if(tm){clearInterval(tm);tm=null;ps.textContent="Resume"}else{end=Date.now()+left*1000;tm=setInterval(tick,500);ps.textContent="Pause"}};
+pr.onclick=()=>{clearInterval(tm);tm=null;left=1500;clk.textContent="25:00";ps.textContent="Start"};
+qt.textContent=Q[Math.floor(Date.now()/864e5)%Q.length];
+const m=/^#t(\d+)$/.exec(location.hash);if(m&&T[+m[1]])cur=+m[1];
+render();
+</script></body></html>
